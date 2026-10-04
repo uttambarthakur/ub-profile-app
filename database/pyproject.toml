@@ -1,0 +1,24 @@
+[project]
+name = "database"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Barthakur, Uttam kumar", email = "Uttamkumar.Barthakur@carelon.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "pymongo[srv]>=4.18.1",
+    "python-dotenv>=1.2.3",
+    "truststore>=0.10.4",
+]
+
+[project.scripts]
+connection = "database.connection:main"
+embedding = "database.embedding:main"
+rerank = "database.rerank:main"
+
+[build-system]
+requires = ["uv_build>=0.12.18,<0.13.0"]
+build-backend = "uv_build"
