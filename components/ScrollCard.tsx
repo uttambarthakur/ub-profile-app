@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import DownloadPdfButton from "./DownloadPdfButton";
 
 type ScrollCardProps = {
   children: ReactNode;
@@ -79,7 +80,14 @@ export default function ScrollCard({ children }: ScrollCardProps) {
 
   return (
     <div className="mx-auto flex h-[78vh] min-h-135 w-full gap-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-      <aside className="flex w-44 shrink-0 items-center">
+      <aside className="flex flex-col w-44 shrink-0 items-center gap-16">
+        <DownloadPdfButton
+        storagePath="documents/Resume_Uttam_2026.pdf"
+        fileName="Resume_Uttam_2026.pdf"
+        className="bg-teal-500 hover:bg-teal-700 font-mono text-sm"
+      >
+        📄 Download Resume
+      </DownloadPdfButton>
         <div className="w-full space-y-4">
           {sections.map((section) => {
             const isActive = activeSection === section.id;

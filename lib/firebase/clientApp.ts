@@ -1,6 +1,7 @@
 "use client";
 
 import { initializeApp, getApps } from "firebase/app";
+import { getStorage } from "firebase/storage";
 import { firebaseConfig } from "./config";
 import { getAuth } from "firebase/auth";
 import { initializeUI, requireDisplayName } from "@firebase-oss/ui-core";
@@ -15,3 +16,4 @@ export const ui = initializeUI({
   behaviors: [requireDisplayName()],
 });
 
+export const storage = getStorage(firebaseApp);
