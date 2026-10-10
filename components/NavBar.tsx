@@ -13,7 +13,7 @@ export default function NavBar() {
   const router = useRouter();
 
   return (
-    <nav className="border-b border-gray-200 bg-white">
+    <nav className="border-b border-gray-200 bg-white mb-6">
       <div className="mx-auto flex w-full items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         
         <div className="flex gap-3">

@@ -4,7 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-600 text-white py-2.5">
+    <footer className="bg-gray-600 text-white py-2.5 fixed bottom-0 w-full">
       <div className="container mx-auto text-center">
         <p>&copy; {new Date().getFullYear()} UB. All rights reserved.</p>
       </div>
