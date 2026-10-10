@@ -1,3 +1,5 @@
+"use client";
+
 import { ForgotPasswordAuthScreen } from "@firebase-oss/ui-react";
 import { useRouter } from "next/navigation";
 
