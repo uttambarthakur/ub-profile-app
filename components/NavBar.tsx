@@ -39,6 +39,9 @@ export default function NavBar() {
           <Link href="/ask-me" className="hover:text-gray-900 transition-colors">
             Ask Me
           </Link>
+          <Link href="/collaborate" className="hover:text-gray-900 transition-colors">
+            Collaborate
+          </Link>
 
           {!user && (
             <Link href="/login" className="hover:text-gray-900 transition-colors">
