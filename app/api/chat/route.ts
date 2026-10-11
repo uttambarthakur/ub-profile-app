@@ -4,17 +4,20 @@ import {
   convertToModelMessages,
   createUIMessageStreamResponse,
   toUIMessageStream,
+  UIMessage,
+  isStepCount
 } from 'ai';
 
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const { messages }: { messages: UIMessage[] } = await req.json();
 
     const result = streamText({
-      model: google('gemini-3.8-flash'), // use a real model name
+      model: google('gemini-3.8-flash'),
       messages: await convertToModelMessages(messages),
+      stopWhen: isStepCount(3),
     });
 
     // ✅ Correct modern way (no deprecation)

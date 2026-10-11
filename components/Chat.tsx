@@ -113,7 +113,7 @@ export default function ChatComponent() {
                     <span key={index} className="whitespace-pre-wrap">
                       {part.text}
                     </span>
-                  ) : null
+                  ) : <pre key={`${message.id}-${index}`}>{JSON.stringify(part, null, 2)}</pre>
                 )}
               </div>
             </div>
