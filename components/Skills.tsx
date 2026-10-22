@@ -10,9 +10,7 @@ import {
   FaLink,
   FaUsers,
 } from "react-icons/fa";
-
 import { TbFileLambdaFilled } from "react-icons/tb";
-
 import {
   SiDocker,
   SiFastapi,
@@ -29,8 +27,7 @@ import {
   SiTypescript,
   SiApacheairflow,
   SiMlflow,
-  SiOllama
-
+  SiOllama,
 } from "react-icons/si";
 
 type SkillItem = {
@@ -82,9 +79,24 @@ const skillGroups: SkillGroup[] = [
       { name: "AWS Lambda", icon: TbFileLambdaFilled },
       { name: "AWS EC2", svgSrc: "/aws-ec2.svg" },
       { name: "AWS Secrets Manager", icon: FaKey },
-      { name: "GCP Firebase", svgSrc: "/gcp-firebase.jpeg", imageSize: 52, imageClassName: "h-12 w-12" },
-      { name: "GCP Cloud Functions", svgSrc: "/gcp-cloud-functions.png", imageSize: 52, imageClassName: "h-12 w-12" },
-      { name: "GCP Firestore", svgSrc: "/gcp-firestore.png", imageSize: 52, imageClassName: "h-12 w-12" },
+      {
+        name: "GCP Firebase",
+        svgSrc: "/gcp-firebase.jpeg",
+        imageSize: 52,
+        imageClassName: "h-12 w-12",
+      },
+      {
+        name: "GCP Cloud Functions",
+        svgSrc: "/gcp-cloud-functions.png",
+        imageSize: 52,
+        imageClassName: "h-12 w-12",
+      },
+      {
+        name: "GCP Firestore",
+        svgSrc: "/gcp-firestore.png",
+        imageSize: 52,
+        imageClassName: "h-12 w-12",
+      },
       { name: "Okta (OAuth/OIDC)", svgSrc: "/okta.svg" },
     ],
   },
@@ -96,7 +108,7 @@ const skillGroups: SkillGroup[] = [
       { name: "Kubeflow", svgSrc: "/kubeflow.svg" },
       { name: "Ray", svgSrc: "/ray.svg" },
       { name: "Dask", svgSrc: "/dask.svg" },
-      { name: "PySpark", svgSrc: "/apachespark.svg"},
+      { name: "PySpark", svgSrc: "/apachespark.svg" },
       { name: "Snowpark", svgSrc: "/snowflake-light.svg" },
       { name: "Celery", icon: FaLeaf },
     ],
@@ -153,13 +165,25 @@ const skillGroups: SkillGroup[] = [
 
 export default function Skills() {
   return (
-    <section data-scroll-section="skills" className="h-full snap-start overflow-y-auto rounded-xl border border-gray-200 bg-gray-50 p-6">
-      <div className="mt-6 space-y-6">
+    <section
+      data-scroll-section="skills"
+      className="h-full snap-start overflow-y-auto rounded-xl border border-gray-200 bg-gray-50 p-4 sm:p-6"
+    >
+      <div className="mt-2 space-y-6 sm:mt-4 sm:space-y-8">
         {skillGroups.map((group) => {
           return (
             <div key={group.title}>
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-700">{group.title}</h3>
-                <ul className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-4 lg:grid-cols-5">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-700 sm:text-sm">
+                {group.title}
+              </h3>
+
+              {/* 
+                Mobile: 2 columns
+                sm: 3 columns  
+                md: 4 columns
+                lg: 5 columns
+              */}
+              <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 {group.items.map((item) => {
                   const ItemIcon = item.icon ?? FaCode;
                   const imageSize = item.imageSize ?? 30;
@@ -168,7 +192,7 @@ export default function Skills() {
                   return (
                     <li
                       key={`${group.title}-${item.name}`}
-                      className="flex min-h-26 flex-col items-center justify-center gap-1 rounded-xl border border-gray-200 bg-white px-2 py-2 text-center text-xs font-medium text-gray-800"
+                      className="flex min-h-[5.5rem] flex-col items-center justify-center gap-1.5 rounded-xl border border-gray-200 bg-white px-2 py-3 text-center text-xs font-medium text-gray-800 sm:min-h-26"
                     >
                       {item.svgSrc ? (
                         <Image
@@ -179,7 +203,10 @@ export default function Skills() {
                           className={`${imageClassName} object-contain`}
                         />
                       ) : (
-                        <ItemIcon className="h-6 w-6 text-gray-700" aria-hidden="true" />
+                        <ItemIcon
+                          className="h-6 w-6 text-gray-700"
+                          aria-hidden="true"
+                        />
                       )}
                       <span className="leading-tight">{item.name}</span>
                     </li>
