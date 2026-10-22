@@ -28,6 +28,8 @@ import {
   SiApacheairflow,
   SiMlflow,
   SiOllama,
+  SiDatabricks,
+  SiCrewai,
 } from "react-icons/si";
 
 type SkillItem = {
@@ -51,8 +53,9 @@ const skillGroups: SkillGroup[] = [
         name: "Strands Agents/Tools/Eval",
         svgSrc: "/strands-agents.svg",
         imageSize: 52,
-        imageClassName: "h-12 w-12",
+        imageClassName: "h-8 w-9",
       },
+      { name: "CrewAI", icon: SiCrewai },
       { name: "LangGraph (LangChain)", svgSrc: "/langgraph-light.svg" },
       { name: "Context Engineering", icon: FaBrain },
       { name: "RAG", icon: FaDatabase },
@@ -107,7 +110,7 @@ const skillGroups: SkillGroup[] = [
       { name: "Airflow", icon: SiApacheairflow },
       { name: "Kubeflow", svgSrc: "/kubeflow.svg" },
       { name: "Ray", svgSrc: "/ray.svg" },
-      { name: "Dask", svgSrc: "/dask.svg" },
+      { name: "Databricks", icon: SiDatabricks },
       { name: "PySpark", svgSrc: "/apachespark.svg" },
       { name: "Snowpark", svgSrc: "/snowflake-light.svg" },
       { name: "Celery", icon: FaLeaf },
